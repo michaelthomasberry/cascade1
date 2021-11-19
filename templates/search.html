@@ -4,27 +4,27 @@
      <p>Suggested Boiler Pack </p>
    
         
-        <table class="table">
-  <thead>
+<table class="table table-striped table-boardered">
     <tr>
-      <th scope="col">Part number</th>
-      <th scope="col">Description</th>
-      <th scope="col">List Price (£)</th>
+      <th>Part Number</th>
+      <th>Description</th>
+      <th>List Price (£)</th>
+     
     </tr>
-  </thead>
-  <tbody>
+    {% for cascades in cascades %}
     <tr>
-        {% for cascades in cascades %} 
-      <td>{{ cascades["id"] }}</td>
+      <td scope="cascades">{{ cascades["id"] }}</td>
       <td>{{ cascades["description"] }}</td>
       <td>{{ cascades["price"] }}</td>
-       {% endfor %}
+      
+     
     </tr>
-   
-  </tbody>
+   {% endfor %}
 </table>
+ 
         
-        <br>
+        
+        
         
         <p>Bill of material</p>
         
