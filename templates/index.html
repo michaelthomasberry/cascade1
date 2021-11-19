@@ -1,0 +1,43 @@
+{% extends "layout.html" %}
+{% block body %}
+
+    <br>
+     <H3> Boiler Cascade Configurator</H3>
+
+     <BR>
+
+     <form action="/search" method="post">
+
+
+
+   <div class="form-group">
+    <label for="exampleFormControlSelect2">Select your system output requirement (kW)</label>
+    <select multiple class="form-control" autofocus name="pack" id="exampleFormControlSelect2">
+      <option>100</option>
+      <option>130</option>
+      <option>165</option>
+      <option>200</option>
+      <option>250</option>
+        <option>300</option>
+    </select>
+  </div>
+
+
+         <input type="submit" value="Search">
+
+
+  To do: ceiled/open vented / TL vs TR arrangement
+
+
+
+
+     </form>
+    <br>
+
+
+
+<iframe id="kmsembed-0_2v8g3fw3" width="400" height="225" src="https://tube.video.bosch.com/embed/secure/iframe/entryId/0_2v8g3fw3/uiConfId/23449533" class="kmsembed" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" referrerPolicy="no-referrer-when-downgrade" sandbox="allow-forms allow-same-origin allow-scripts allow-top-navigation allow-pointer-lock allow-popups allow-modals allow-orientation-lock allow-popups-to-escape-sandbox allow-presentation allow-top-navigation-by-user-activation" frameborder="0" title="Kaltura Player"></iframe>
+
+
+
+{% endblock %}

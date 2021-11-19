@@ -1,0 +1,82 @@
+{% extends "layout.html" %}
+{% block body %}
+     
+     <p>Suggested Boiler Pack </p>
+   
+        
+        <table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Part number</th>
+      <th scope="col">Description</th>
+      <th scope="col">List Price (£)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+        {% for cascades in cascades %} 
+      <td>{{ cascades["id"] }}</td>
+      <td>{{ cascades["description"] }}</td>
+      <td>{{ cascades["price"] }}</td>
+       {% endfor %}
+    </tr>
+   
+  </tbody>
+</table>
+        
+        <br>
+        
+        <p>Bill of material</p>
+        
+        
+
+<table class="table table-striped table-boardered">
+    <tr>
+      <th>Product ID</th>
+      <th>Product Description</th>
+      <th>Quantity</th>
+     
+    </tr>
+    {% for row in rows %}
+    <tr>
+      <td scope="row">{{ row["part_number"] }}</td>
+      <td>{{ row["product_description"] }}</td>
+      <td>{{ row["quantity"] }}</td>
+      
+     
+    </tr>
+   {% endfor %}
+</table>
+
+
+<img src="{{ url_for('static', filename='images/GC7000WP.png')}}" width=222 class="img-fluid" alt="Responsive image">
+
+
+<br>
+
+<div class="row">
+  <div class="col-sm-6">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">Tech check</h5>
+        <p class="card-text">To confirm your system spec, or to specify flue system- contact our technical consultants.</p>
+        <a href="https://www.bosch-thermotechnology.com/gb/en/commercial-industrial/knowledge/contacts/request-a-site-visit/" class="btn btn-primary">Check my spec</a>
+         <a class="single" href="tel:+03330 608 456">+03330 608 456</a>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-6">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">Get Merchant Price</h5>
+        <p class="card-text">Get a price from your prefered Merchant with your bespoke terms .</p>
+        <a href="https://www.bosch-thermotechnology.com/gb/en/commercial-industrial/knowledge/contacts/request-a-site-visit/" class="btn btn-primary">Forward Spec Merchant</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+ <a href="/">Go Back</a>
+ 
+ <br>
+{% endblock %}

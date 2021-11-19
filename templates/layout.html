@@ -1,0 +1,34 @@
+<!DOCTYPE html> 
+<html>
+    <head lang="en">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+        <title>configurator</title>
+        
+    </head>
+    <body>
+       
+        
+        <div class="container">
+        <img src="{{ url_for('static', filename='images/supergraphic.png')}}" class="img-fluid" alt="Responsive image">    
+        <br>
+        <br>
+        <img src="{{ url_for('static', filename='images/BOSCH.png')}}" width=100 class="img-fluid" alt="Responsive image">  
+        <br>
+  <!-- Content here -->
+        {% block body %}
+        {% endblock %}
+        
+    
+        
+        
+        <br>
+         <p>© Bosch Thermotechnology Ltd. 2021, all rights reserved</p>
+
+        <br>
+        <img src="{{ url_for('static', filename='images/supergraphic.png')}}" class="img-fluid" alt="Responsive image">
+        </div>
+    </body>
+    
+    
+    
+</html>
