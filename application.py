@@ -16,11 +16,15 @@ def index():
 @app.route("/search", methods=["POST"])
 def search():
     #..... grab the data from the form and save user inputs as variables
-    pack = request.form.get("pack")
+    output = request.form.get("output")
     hydraulic = request.form.get("hydraulic")
     layout = request.form.get("layout")
+    #...... add a tolerence range for the output to give installer more options this should be set an agreed. 
+    min_output = int(output) - 15
+    max_output = int(output) + 15
+    
     #..... show the casacade pack from cascades table in the database that matches the users perameters 
-    cascades = db.execute("SELECT * FROM cascades WHERE output= ? AND hydraulic = ? AND layout =?", pack, hydraulic, layout,)
+    cascades = db.execute("SELECT * FROM cascades WHERE hydraulic = ? AND layout =? AND output BETWEEN ? and ? ORDER BY price", hydraulic, layout, min_output, max_output)
     #..... show the BOM of that pack
-    rows = db.execute("SELECT * FROM bom JOIN cascades ON bom.bom_id = cascades.id WHERE output = ? AND hydraulic = ? AND layout =?", pack, hydraulic, layout,)
+    rows = db.execute("SELECT * FROM bom JOIN cascades ON bom.bom_id = cascades.id WHERE output = ? AND hydraulic = ? AND layout =?", output, hydraulic, layout,)
     return render_template("search.html",  cascades = cascades, rows = rows)
