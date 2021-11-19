@@ -1,8 +1,4 @@
 flask
 cs50
 sql
-<<<<<<< HEAD
-request
-=======
->>>>>>> ff4a4a61729da604a9953f27404e8177bdd9a272
 gunicorn
