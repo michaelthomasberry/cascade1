@@ -28,3 +28,4 @@ def search():
     #..... show the BOM of that pack
     rows = db.execute("SELECT * FROM bom JOIN cascades ON bom.bom_id = cascades.id WHERE output = ? AND hydraulic = ? AND layout =?", output, hydraulic, layout,)
     return render_template("search.html",  cascades = cascades, rows = rows)
+    #..... TODO show control option + number of heating and hotwater circuits
