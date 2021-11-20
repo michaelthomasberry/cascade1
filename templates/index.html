@@ -83,31 +83,36 @@
 
    <label for="exampleRadios1">Select control strategy</label>
   <div class="form-check">
-  <input class="form-check-input" type="radio" name="control" id="exampleRadios1" value="CC8313" checked>
+  <input class="form-check-input" type="radio" name="controls" id="exampleRadios1" value="CC8313" checked>
   <label class="form-check-label" for="exampleRadios1">
-    Internet-connected 
+    Internet-connected controls
   </label>
 </div>
 <div class="form-check">
-  <input class="form-check-input" type="radio" name="control" id="exampleRadios2" value="MU100">
+  <input class="form-check-input" type="radio" name="controls" id="exampleRadios2" value="MC400 Cascade Sequencer">
   <label class="form-check-label" for="exampleRadios2">
-    Building Management System 
+    Building Management System - Bosch controlling sequencing
+  </label>
+</div>
+<div class="form-check">
+  <input class="form-check-input" type="radio" name="controls" id="exampleRadios2" value="MU100">
+  <label class="form-check-label" for="exampleRadios2">
+    Building Management System - BMS controlling boiler sequencing
   </label>
 </div>
 
 
-         <input type="submit" value="Search">
+<br>
+<input class="btn btn-primary" type="submit" value="Search">
+
+         
 
 
      </form>
     <br>
 
 
-<a href="{{ url_for('static', filename='images/GC7000WP.png')}}" download> download image</a>
-
-
-<iframe id="kmsembed-0_2v8g3fw3" width="400" height="225" src="https://tube.video.bosch.com/embed/secure/iframe/entryId/0_2v8g3fw3/uiConfId/23449533" class="kmsembed" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" referrerPolicy="no-referrer-when-downgrade" sandbox="allow-forms allow-same-origin allow-scripts allow-top-navigation allow-pointer-lock allow-popups allow-modals allow-orientation-lock allow-popups-to-escape-sandbox allow-presentation allow-top-navigation-by-user-activation" frameborder="0" title="Kaltura Player"></iframe>
-
+<img src="{{ url_for('static', filename='images/GC7000WP.png')}}" width=222 class="img-fluid" alt="Responsive image">
 
 
 {% endblock %}

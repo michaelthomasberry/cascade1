@@ -1,9 +1,8 @@
 {% extends "layout.html" %}
 {% block body %}
      
-     
-    
-     <p>Suggested Boiler Pack </p>
+     <br>
+      <H3> Boiler Cascade Pack Options:</H3>
    
         
 <table class="table table-striped table-boardered">
@@ -25,11 +24,13 @@
 </table>
  
         
+<img src="{{ url_for('static', filename='images/GC7000WP.png')}}" width=222 class="img-fluid" alt="Responsive image">
         
+        <br>
         
-        
-        <p>Bill of material</p>
-        
+      <H4> Bill of material:</H4>
+   
+        <br>
         
 
 <table class="table table-striped table-boardered">
@@ -51,10 +52,61 @@
 </table>
 
 
-<img src="{{ url_for('static', filename='images/GC7000WP.png')}}" width=222 class="img-fluid" alt="Responsive image">
 
+
+
+
+        <br>
+        
+      <H4> controls:</H4>
+   
+        <br>
+        
+
+<table class="table table-striped table-boardered">
+    <tr>
+      <th>Product ID</th>
+      <th>Product Description</th>
+      <th>At a glance</th>
+      
+     
+    </tr>
+    {% for controls in controls %}
+    <tr>
+      <td scope="controls">{{ controls["controls_id"] }}</td>
+      <td>{{ controls["controls_description"] }}</td>
+      <td>{{ controls["control_text"] }}</td>
+   
+      
+     
+    </tr>
+   {% endfor %}
+</table>
+
+
+
+
+
+
+
+
+   <br>
+        
+      <H4> Technical Document Downloads:</H4>
+   
+    <br>
+
+<a href="{{ url_for('static', filename='images/GC7000WP.png')}}" download> CAD Files</a> <br>
+<a href="{{ url_for('static', filename='images/GC7000WP.png')}}" download> Technical Data Sheet</a><br>
+<a href="{{ url_for('static', filename='images/GC7000WP.png')}}" download> Installation Manual </a><br>
+<a href="{{ url_for('static', filename='images/GC7000WP.png')}}" download> Operation Manual</a><br>
+<a href="{{ url_for('static', filename='images/GC7000WP.png')}}" download> Spares Manual</a><br>
+<a href="{{ url_for('static', filename='images/GC7000WP.png')}}" download> Specification Guide</a><br>
+<a href="{{ url_for('static', filename='images/GC7000WP.png')}}" download> GC7000WP Customer Flier</a><br>
+<a href="{{ url_for('static', filename='images/GC7000WP.png')}}" download> Terms and Conditions</a><br>
 
 <br>
+
 
 <div class="row">
   <div class="col-sm-6">
