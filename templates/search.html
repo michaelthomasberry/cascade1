@@ -30,7 +30,7 @@
     <tr>
       <th>Part Number</th>
       <th>Description</th>
-      <th>List Price (£)</th>
+      <th>Number of boilers</th>
       <th>BOM</th>
      
     </tr>
@@ -38,7 +38,7 @@
     <tr>
       <td scope="cascades">{{ cascades["id"] }}</td>
       <td>{{ cascades["description"] }}</td>
-      <td>{{ cascades["price"] }}</td>
+      <td>{{ cascades["number_of_boilers"] }}</td>
       <td>
         <form action "/search" method="post">
           <input name="bom_id" type="hidden" value="{{ cascades["id"] }}">
