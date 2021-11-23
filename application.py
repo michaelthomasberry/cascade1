@@ -33,7 +33,7 @@ def search():
     max_output = int(output) + 15
     
     #..... show the casacade pack from cascades table in the database that matches the users perameters 
-    cascades = db.execute("SELECT * FROM cascades WHERE hydraulic = ? AND layout =? AND output BETWEEN ? and ? ORDER BY price", hydraulic, layout, min_output, max_output)
+    cascades = db.execute("SELECT * FROM cascades WHERE hydraulic = ? AND layout =? AND output BETWEEN ? and ?", hydraulic, layout, min_output, max_output)
     #..... show the BOM of that pack
     rows = db.execute("SELECT * FROM bom JOIN cascades ON bom.bom_id = cascades.id WHERE output = ? AND hydraulic = ? AND layout =?", output, hydraulic, layout,)
     #..... TODO show control option + number of heating and hotwater circuits
