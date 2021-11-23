@@ -1,7 +1,28 @@
 {% extends "layout.html" %}
 {% block body %}
+     <!--- downloads spec to pdf--->
+   <script>
+    window.onload = function () {
+    document.getElementById("download")
+        .addEventListener("click", () => {
+            const invoice = this.document.getElementById("invoice");
+            console.log(invoice);
+            console.log(window);
+            var opt = {
+                margin: 1,
+                filename: 'Bosch_GC7000WP_Cascade_Configuration.pdf',
+                image: { type: 'jpeg', quality: 0.98 },
+                html2canvas: { scale: 2 },
+                jsPDF: { unit: 'in', format: 'letter', orientation: 'portrait' }
+            };
+            html2pdf().from(invoice).set(opt).save();
+        })
+}
+</script>   
+     <!--- downloads spec to pdf--->
      
-     <br>
+<div id = "invoice">  
+     <br> 
       <H3> Boiler Cascade Pack Options:</H3>
    
         
@@ -10,6 +31,7 @@
       <th>Part Number</th>
       <th>Description</th>
       <th>List Price (£)</th>
+      <th>BOM</th>
      
     </tr>
     {% for cascades in cascades %}
@@ -17,14 +39,19 @@
       <td scope="cascades">{{ cascades["id"] }}</td>
       <td>{{ cascades["description"] }}</td>
       <td>{{ cascades["price"] }}</td>
+      <td>
+        <form action "/search" method="post">
+          <input name="bom_id" type="hidden" value="{{ cascades["id"] }}">
+          <input type="submit" value="BOM">
+          
+        </form>
+      </td>
       
      
     </tr>
    {% endfor %}
 </table>
  
-        
-<img src="{{ url_for('static', filename='images/GC7000WP.png')}}" width=222 class="img-fluid" alt="Responsive image">
         
         <br>
         
@@ -58,7 +85,7 @@
 
         <br>
         
-      <H4> controls:</H4>
+      <H4> Controls:</H4>
    
         <br>
         
@@ -83,12 +110,14 @@
    {% endfor %}
 </table>
 
+</div>   
+<br>
+ <button class="btn btn-primary" id="download"> Download Spec</button>
+ <p>This may take up to 10 seconds.</p>
+<br>
 
 
-
-
-
-
+<img src="{{ url_for('static', filename='images/GC7000WP.png')}}" width=222 class="img-fluid" alt="Responsive image">
 
    <br>
         
@@ -131,6 +160,11 @@
 </div>
 
  <a href="/">Go Back</a>
+  <a href="/bom">BOM</a>
  
  <br>
+ 
+ 
+
+ 
 {% endblock %}

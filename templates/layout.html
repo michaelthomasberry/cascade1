@@ -3,10 +3,26 @@
     <head lang="en">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
         <title>configurator</title>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.2/html2pdf.bundle.js"></script>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        
         
     </head>
     <body>
        
+        
+ <script>
+   function generatePDF(){
+     const element = document.getElementById("part_number_pdf");
+     
+     html2pdf()
+     .from(element)
+     .save();
+     
+   } 
+   
+   
+ </script>
         
         <div class="container">
         <img src="{{ url_for('static', filename='images/supergraphic.png')}}" class="img-fluid" alt="Responsive image">    
